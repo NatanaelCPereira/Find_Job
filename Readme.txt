@@ -1,10 +1,7 @@
-Comandos:
+Find Job
 
-git status
-git add .
-git commit -m "mensagem"
-git pull origin master
-git push origin master
+Breve Descrição:
+
 ------------------------------------------
 Programas necessários:
 
@@ -13,6 +10,8 @@ Django 1.6: https://www.djangoproject.com/download/1.6.11/tarball/
 Banco de Dados: Mysql
 
 ------------------------------------------
+Estrutura de Dados:
+--
 Usuários:
 Nome
 Email
