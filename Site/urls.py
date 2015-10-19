@@ -10,12 +10,10 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('Site.views',
     # Examples:
-    # url(r'^$', 'SysUp_JHFolheados.views.home', name='home'),
 
     (r'^$', 'home'),
-    #(r'^$', 'add_usuario'),
-    #(r'^$', 'ver_usuario'),
-    #(r'^$', 'pesquisa_usuario'),
-    #(r'^$', 'update_usuario'),
-    #(r'^$', 'update_usuario'),
+    (r'^usuario/add/', 'add_usuario'),
+    (r'^usuario/(?P<id>\d+)/$', 'ver_usuario'),
+    (r'^usuario/update/(?P<id>\d+)/', 'update_usuario'),
+    (r'^usuario/delete/(?P<id>\d+)/', 'delete_usuario'),
 )

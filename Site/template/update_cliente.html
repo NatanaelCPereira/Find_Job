@@ -1,0 +1,160 @@
+{%extends 'base.html'%}
+
+{%block conteudo%}
+
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Adição de Cliente <small><a href="http://127.0.0.1:8000/SysUp/cliente/pesquisa/">(Voltar)</a></small>
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" action="http://127.0.0.1:8000/SysUp/cliente/update/{{cliente.id}}/" name="formulario">
+{% csrf_token %}
+            <div class="form-group">
+                <label class="col-lg-1 control-label">Nome</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="nome" id="nome" value="{{cliente.nome}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+                <label class="col-lg-1 control-label">Codigo</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="codigo" id="codigo" value="{{cliente.codigo}}" {%if not editar%}readonly{%endif%}>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1 control-label">CPF/CNPJ</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="cpf_cnpj" id="cpf_cnpj" value="{{cliente.cpf_cnpj}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+                <label class="col-lg-1 control-label">RG</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="rg" id="rg" value="{{cliente.rg}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+                <label class="col-lg-1 control-label">Nascimento</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="data_nascimento" id="data_nascimento" value="{{cliente.data_nascimento}}" {%if not editar%}readonly{%endif%}>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1 control-label">Telefone</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="telefone" id="telefone" value="{{cliente.telefone}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+                <label class="col-lg-1 control-label">Celular</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="celular" id="celular" value="{{cliente.celular}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1 control-label">Endereço</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="endereco" id="endereco" value="{{cliente.endereco}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+                <label class="col-lg-1 control-label">Número</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="numero" id="numero" value="{{cliente.numero}}" {%if not editar%}readonly{%endif%}>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1 control-label">Bairro</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="bairro" id="bairro" value="{{cliente.bairro}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+                <label class="col-lg-1 control-label">Cidade</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="cidade" id="cidade" value="{{cliente.cidade}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+                <label class="col-lg-1 control-label">Estado</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="estado" id="estado" value="{{cliente.estado}}" {%if not editar%}readonly{%endif%}>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1 control-label">Referência</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="referencia" id="referencia" value="{{cliente.referencia}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+                <label class="col-lg-1 control-label">CEP</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="cep" id="cep" value="{{cliente.cep}}" {%if not editar%}readonly{%endif%}>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1 control-label">Email</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="email" id="email" value="{{cliente.email}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+                <label class="col-lg-1 control-label"></label>
+                <div class="col-sm-2">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="" {%if not editar%}disabled{%endif%}>
+                            Receber novidades?
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1 control-label">Pai</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="nome_pai" id="nome_pai" value="{{cliente.nome_pai}}" {%if not editar%}readonly{%endif%}>
+                </div>
+                <label class="col-lg-1 control-label">Telefone</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="telefone_pai" id="telefone_pai" value="{{cliente.telefone_pai}}" {%if not editar%}readonly{%endif%}>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1 control-label">Mãe</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="nome_mae" id="nome_mae" value="{{cliente.nome_mae}}" {%if not editar%}readonly{%endif%}>
+                </div>
+
+                <label class="col-lg-1 control-label">Telefone</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="telefone_mae" id="telefone_mae" value="{{cliente.telefone_mae}}" {%if not editar%}readonly{%endif%}>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-1 control-label">OBS</label>
+                <div class="col-sm-11">
+                    <textarea class="form-control" rows="3" {%if not editar%}readonly{%endif%}></textarea>
+                </div>
+            </div>
+            {%if editar%}
+            <button class="btn btn-primary col-sm-offset-9">Atualizar</button>
+            <button class="btn btn-warning" type="reset">Cancelar</button>
+            {%else%}
+            <a href="http://127.0.0.1:8000/SysUp/cliente/{{cliente.id}}/?editar=1" class="btn btn-primary col-sm-offset-9">Editar</a>
+            {%endif%}
+            
+        </form>
+    </div>
+</div>
+
+
+<!-- /.row -->
+{%endblock%}
