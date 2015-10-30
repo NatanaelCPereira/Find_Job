@@ -13,6 +13,9 @@ from Site.models import Usuario
 def home(request):
 	now = timezone.now()
 	usuarios = Usuario.objects.all()
+	if request.method == 'POST': # If the form has been submitted...
+		nome = request.POST.get('pesquisa','')
+		usuarios = usuarios.filter(nome__icontains=nome)
 	return render_to_response('home.html', {"usuarios":usuarios}, context_instance=RequestContext(request))
 
 def add_usuario(request):
